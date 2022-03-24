@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title>archive_a: 2022/3 | My Page</title>
+  <title>TCP学习笔记 | My Page</title>
   <meta name="description" content="网站简介" />
   <meta name="keywords" content="Linux,Python,Java" />
   
@@ -326,136 +326,235 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/sharejs.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img">
+        <img src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://gitee.com/yan-code1/Images/raw/master/pic/20220314/215559063-1.png" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
+      </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      TCP学习笔记</h1>
+      <p class="entry-census">
+        <span>
+          <a href="">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href=""></a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2021-12-5
+        
+      
+        ·<span id="readcount"></span>次阅读
+      
+      </p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2022年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      03月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2022/03/07/UDP_Transmission/">
-                          <span style="color:#0bf;">
-                          07日14:54:29</span>
-                          基于UDP的socket多播传输
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2022/03/04/create_web_page/">
-                          <span style="color:#0bf;">
-                          04日16:54:02</span>
-                          在github上搭建hexo博客主页
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2021年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      12月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2021/12/05/TCP_notes/">
-                          <span style="color:#0bf;">
-                          05日11:22:00</span>
-                          TCP学习笔记
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2020年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      02月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/02/03/google-speech/">
-                          <span style="color:#0bf;">
-                          03日17:27:00</span>
-                          调用google speech recognition实现语音片段识别
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"> <!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h1 id="TCP协议"><a href="#TCP协议" class="headerlink" title="TCP协议"></a>TCP协议</h1><h2 id="所处位置——传输层"><a href="#所处位置——传输层" class="headerlink" title="所处位置——传输层"></a>所处位置——传输层</h2><p><img src="https://gitee.com/yan-code1/Images/raw/master/pic/20211207/205940851-1.png" alt="image"></p>
+<h2 id="在传输层细分"><a href="#在传输层细分" class="headerlink" title="在传输层细分"></a>在传输层细分</h2><p><img src="https://gitee.com/yan-code1/Images/raw/master/pic/20211207/205956822-1.png" alt="image"></p>
+<h2 id="本节内容大纲"><a href="#本节内容大纲" class="headerlink" title="本节内容大纲"></a>本节内容大纲</h2><ul>
+<li>概念和比较</li>
+<li>TCP结构和详解</li>
+<li><strong>可靠传输</strong>：序号，确认，重传，冗余</li>
+<li><strong>传输控制</strong>：流量控制，拥塞控制</li>
+<li>潜在的问题</li>
+<li>疑问</li>
+</ul>
+<hr>
+<h2 id="1-概念和比较"><a href="#1-概念和比较" class="headerlink" title="1 概念和比较"></a>1 概念和比较</h2><h2 id="1-1-TCP和UDP的简单区别"><a href="#1-1-TCP和UDP的简单区别" class="headerlink" title="1. 1 TCP和UDP的简单区别"></a>1. 1 TCP和UDP的简单区别</h2><ul>
+<li>TCP面向连接，是一个全双工的可靠信道</li>
+<li>UDP无连接，是一个不可靠信道</li>
+</ul>
+<hr>
+<h2 id="1-2-TCP的流程："><a href="#1-2-TCP的流程：" class="headerlink" title="1.2 TCP的流程："></a>1.2 TCP的流程：</h2><hr>
+<h2 id="建立连接——3次握手"><a href="#建立连接——3次握手" class="headerlink" title="建立连接——3次握手"></a><strong>建立连接——3次握手</strong></h2><p><img src="https://gitee.com/yan-code1/Images/raw/master/pic/20211208/155055927-1.png" alt="image"></p>
+<p>1.Client发起连接请求,并初始化序列号：SYN = 1 seq = J。Client进入SYN_SENT状态，等待Server确认。<br>2.Server确认连接请求：ACK = 1 SYN = 1 seq = K ack = J+1。Server进入SYN_RCVD状态<br>3.Client收到确认后，检查接受报文中ack是否为J+1，ACK是否为1，发送报文：ACK=1,seq = J+1,ack = K+1。</p>
+<p>Server检查ack是否为K+1，ACK是否为1。如果正确则连接建立成功，Client和Server进入ESTABLISHED状态</p>
+<p><strong>提问：</strong></p>
+<ul>
+<li>为什么TCP客户端最后还要发送一次确认呢？</li>
+<li>答: 防止已经失效的连接请求报文突然又传送到了服务器</li>
+<li>tcp三次握手报文能携带数据吗？</li>
+<li>答：前两次握手不能携带数据（SYN = 1的报文），第三次握手允许携带数据，若不携带数据则不消耗序列号。一般是不携带数据。<h2 id="释放连接——4次挥手"><a href="#释放连接——4次挥手" class="headerlink" title="释放连接——4次挥手"></a><strong>释放连接——4次挥手</strong></h2><img src="https://gitee.com/yan-code1/Images/raw/master/pic/20211208/155118681-1.png" alt="image"></li>
+</ul>
+<hr>
+<p>（1）第一次挥手：Client发送一个FIN，用来关闭Client到Server的数据传送，Client进入FIN_WAIT_1状态。<br>（2）第二次挥手：Server收到FIN后，发送一个ACK给Client，确认序号为收到序号+1（与SYN相同，一个FIN占用一个序号），Server进入CLOSE_WAIT状态。<br>（3）第三次挥手：Server发送一个FIN，用来关闭Server到Client的数据传送，Server进入LAST_ACK状态。<br>（4）第四次挥手：Client收到FIN后，Client进入TIME_WAIT状态，接着发送一个ACK给Server，确认序号为收到序号+1，Server进入CLOSED状态，完成四次挥手。</p>
+<hr>
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a><strong>注意：</strong></h2><ul>
+<li>四次挥手时，通信双方谁先发起连接中断请求谁就是客户端。</li>
+<li>收到对方的FIN报文时，表示对方不再发送数据了，但是我自己还可以发送。</li>
+<li>通常一方发起FIN报文后，另一方无论在什么情况下都应该立即回应ACK报文，特殊情况下还会有下面的同时发起FIN的情况。<br><img src="https://gitee.com/yan-code1/Images/raw/master/pic/20211208/163245954-1.png" alt="image"></li>
+<li>所以挥手就只是发FIN和立即收ACK的一个过程，只是双方各执行了一遍。</li>
+</ul>
+<hr>
+<p><strong>提问：</strong></p>
+<ul>
+<li>为什么建立连接协议是三次握手，而关闭连接却是四次握手呢？</li>
+<li>答：双方连接的释放可能不同步。收到对方的FIN报文，仅仅表示对方没有数据发送给你，但你的数据未必发完了。</li>
+<li>为什么TIME_WAIT状态还需要等2MSL后才能返回到CLOSED状态？</li>
+<li>答：TIME_WAIT的作用就是重发可能丢失的ACK报文，因为网络不一定可靠。</li>
+</ul>
+<hr>
+<h2 id="2-TCP结构和详解"><a href="#2-TCP结构和详解" class="headerlink" title="2 TCP结构和详解"></a>2 TCP结构和详解</h2><h2 id="2-1-TCP的结构"><a href="#2-1-TCP的结构" class="headerlink" title="2.1 TCP的结构"></a>2.1 TCP的结构</h2><p><img src="https://gitee.com/yan-code1/Images/raw/master/pic/20211208/104157195-1.png" alt="image"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="其中控制位包括6个，分别是URG，ACK-PSH-RSTSYN-FIN"><a href="#其中控制位包括6个，分别是URG，ACK-PSH-RSTSYN-FIN" class="headerlink" title="其中控制位包括6个，分别是URG，ACK ,PSH,RSTSYN,FIN"></a>其中控制位包括6个，分别是URG，<strong>ACK <strong>,PSH,RST</strong>SYN</strong>,<strong>FIN</strong></h2><ul>
+<li>ACK：表示前面的<strong>确认号</strong>字段是否<strong>有效</strong>。1为有效。规定连接建立后ACK必须为1；</li>
+<li>SYN：<strong>同步序列号</strong>，连接建立时才会使用。只有在前两次握手中SYN才置为1，如连接请求报文段ACK = 0，SYN = 1 ，同意建立连接ACK = 1，SYN = 1；</li>
+<li>FIN :标记数据是否<strong>发送完毕</strong>。FIN=1表示发送完毕，告诉对方可以释放连接了；</li>
+<li>URG：紧急数据。URG=1表示含紧急数据。</li>
+<li>RSH：数据是缓存还是直接推送给上层。RSH=1表示直接提交。</li>
+<li>RST ：连接错误，需要释放连接。RST=时表示错误。</li>
+</ul>
+<h2 id="注意Acknowledgment-Number≠ACK-前者是确认应答号，32位；后者为控制位，1位。"><a href="#注意Acknowledgment-Number≠ACK-前者是确认应答号，32位；后者为控制位，1位。" class="headerlink" title="注意Acknowledgment Number≠ACK,前者是确认应答号，32位；后者为控制位，1位。"></a>注意Acknowledgment Number≠ACK,前者是确认应答号，32位；后者为控制位，1位。</h2><h2 id="3-可靠传输"><a href="#3-可靠传输" class="headerlink" title="3 可靠传输"></a>3 可靠传输</h2><ul>
+<li>序号：让数据有序</li>
+<li>确认：好，我收到了，请继续</li>
+<li>重传：很长时间没收到回信，重发一份</li>
+<li>冗余：反复提醒，直到不耐烦为止</li>
+</ul>
+<h2 id="3-1确认机制"><a href="#3-1确认机制" class="headerlink" title="3.1确认机制"></a>3.1确认机制</h2><hr>
+<ul>
+<li>发送编码和打包（<strong>注意这里是不断进行发送，而不是传完一个才传下一个</strong>）</li>
+</ul>
+<blockquote>
+<blockquote>
+<p>发送方会将源文件按一个字节一个字节进行编号1，2，…,然后发送端要进行数据发送时，将几个编号的字节打包成一个报文，报文的编号为要发送的<strong>第一个字节</strong>的编号<br>如:1,2,3,4组成的报文段，其编号为1。</p>
+</blockquote>
+</blockquote>
+<hr>
+<ul>
+<li>接受和继续发送请求</li>
+</ul>
+<hr>
+<blockquote>
+<blockquote>
+<p>接受端收到报文后记录最后一个字节的编号4，然后将编号加一发送，以请求接下来的数据，如4+1=5，继续发送5，6报文段。</p>
+</blockquote>
+</blockquote>
+<ul>
+<li><p>发送端确认报文接受并释放，。如释放报文1，2，3，4；发送5，6，7报文。<br><img src="https://gitee.com/yan-code1/Images/raw/master/pic/20211207/210831437-1.png" alt="image"></p>
+</li>
+<li><p>一种特殊情况：由于发送方是不断传，可能5报文还没到，7报文就已经到了，但此时接收端不发送7+1=8请求<br><img src="https://gitee.com/yan-code1/Images/raw/master/pic/20211207/212744168-1.png" alt="image"></p>
+</li>
+</ul>
+<hr>
+<h2 id="3-2重传机制"><a href="#3-2重传机制" class="headerlink" title="3.2重传机制"></a>3.2重传机制</h2><h3 id="TCP的重传主要分为两类：定时重传和快速重传。"><a href="#TCP的重传主要分为两类：定时重传和快速重传。" class="headerlink" title="TCP的重传主要分为两类：定时重传和快速重传。"></a>TCP的重传主要分为两类：定时重传和快速重传。</h3><h2 id="3-2-1定时重传"><a href="#3-2-1定时重传" class="headerlink" title="3.2.1定时重传"></a>3.2.1定时重传</h2><blockquote>
+<blockquote>
+<p>定时重传是指发送数据时设置一个定时器，如果超过指定的时间后没有收到确认应答报文ACK就会重发该数据。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h2 id="4-潜在的问题"><a href="#4-潜在的问题" class="headerlink" title="4 潜在的问题"></a>4 潜在的问题</h2><ul>
+<li>粘包问题</li>
+<li>传输效率低</li>
+</ul>
+<hr>
+<h2 id="5-疑问"><a href="#5-疑问" class="headerlink" title="5 疑问"></a>5 疑问</h2><ul>
+<li>每个字节都会编号，那一旦文件大小超过最大数字怎么办？</li>
+<li>答：序列号由32位表示，每2^32个字节，序列号会重新从0开始。</li>
+<li>如何区分两个不同报文段的相同序列号？</li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="/img/custom/donate/AliPayQR.jpg"></li>
+                <li class="wechat-code"><img src="/img/custom/donate/WeChanQR.jpg"></li>
+              </ul>
             </div>
           </div>
         </div>
+          
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2022/03/04/create_web_page/" rel="prev">
+              <div class="background">
+<!--                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://gitee.com/yan-code1/Images/raw/master/pic/20220307/144921719-1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/yan-code1/Images/raw/master/pic/20220307/144921719-1.png">-->
+                
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://gitee.com/yan-code1/Images/raw/master/pic/20220307/144921719-1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                在github上搭建hexo博客主页</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/02/03/google-speech/" rel="next">
+              <div class="background">
+                
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://gitee.com/yan-code1/Images/raw/master/pic/20220307/142547146-1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                调用google speech recognition实现语音片段识别</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">Author</span>
+            <h3 itemprop="name">
+            <a href="" itemprop="url" rel="author"></a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i></p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
 
     </div>    
     <div class="ins-search">
