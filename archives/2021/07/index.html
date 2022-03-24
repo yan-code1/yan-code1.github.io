@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title>调用google speech recognition实现语音片段识别 | My Page</title>
+  <title>archive_a: 2021/7 | My Page</title>
   <meta name="description" content="网站简介" />
   <meta name="keywords" content="Linux,Python,Java" />
   
@@ -326,158 +326,175 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/sharejs.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xbclub/staticCDN@0.6/css/tocbot.css">
-<div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img">
-        <img src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://gitee.com/yan-code1/Images/raw/master/pic/20220307/142547146-1.png" class="lazyload" onerror="imgError(this,3)" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;">
-      </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      调用google speech recognition实现语音片段识别</h1>
-      <p class="entry-census">
-        <span>
-          <a href="">
-            <img src="">
-          </a>
-        </span>
-        <span>
-          <a href=""></a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2020-2-3
-        
-      
-        ·<span id="readcount"></span>次阅读
-      
-      </p>
-    </header>
-  </div>
-
+      <div class="blank" style="padding-top: 75px;">
+</div>
 <div id="content" class="site-content">
-  <div id="primary" class="content-area">
-    <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"> <!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <h1 id="代码位置："><a href="#代码位置：" class="headerlink" title="代码位置："></a>代码位置：</h1><h1 id="环境配置：win10"><a href="#环境配置：win10" class="headerlink" title="环境配置：win10"></a>环境配置：win10</h1><ul>
-<li>安装PyAudio ,高版本python直接pip会报错，可能需要用源码安装，这里提供3.7的源码:pypi.python.org/pypi/PyAudio <a target="_blank" rel="noopener" href="https://github.com/intxcc/pyaudio_portaudio/releases">https://github.com/intxcc/pyaudio_portaudio/releases</a></li>
-<li>pip install SpeechRecognition谷歌语音识别库，需要联网</li>
-</ul>
-<hr>
-<h1 id="需要注意的是"><a href="#需要注意的是" class="headerlink" title="需要注意的是"></a>需要注意的是</h1><ul>
-<li>该识别仅支持音频格式为.wav，有需要可以利用ffmpeg进行格式转换：</li>
-</ul>
-<p>** ffmpeg -i test.m4s out.wav **</p>
-<ul>
-<li>仅支持片段识别，时间过长会导致请求失败，需要添加切片的功能</li>
-<li>有两种调用方式，一种是直接读取语音文件，第二种是读取麦克风</li>
-<li>函数进行识别语音范围指定（按时长），duration为终点，offset为起点；record(source,duration=None,offset=None)</li>
-<li>recognize_google(audioFile,language =’en-US’)语言选择en-US,zh-CN</li>
-</ul>
-<hr>
-<pre class=" language-python"><code class="language-python"><span class="token keyword">import</span> speech_recognition <span class="token keyword">as</span> sr
-<span class="token keyword">import</span> os
-r <span class="token operator">=</span> sr<span class="token punctuation">.</span>Recognizer<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment" spellcheck="true"># use microphone</span>
-<span class="token comment" spellcheck="true"># with sr.Microphone() as source:</span>
-<span class="token comment" spellcheck="true">#     print("Say something!")</span>
-<span class="token comment" spellcheck="true">#     audio = r.listen(source)</span>
-<span class="token comment" spellcheck="true"># use audio file</span>
-file_path <span class="token operator">=</span> <span class="token string">'ts/1.wav'</span>
-audioFile <span class="token operator">=</span> sr<span class="token punctuation">.</span>AudioFile<span class="token punctuation">(</span>file_path<span class="token punctuation">)</span>
-<span class="token keyword">with</span> audioFile <span class="token keyword">as</span> source<span class="token punctuation">:</span>
-    audio <span class="token operator">=</span> r<span class="token punctuation">.</span>record<span class="token punctuation">(</span>source<span class="token punctuation">)</span>
-
-<span class="token comment" spellcheck="true"># r.recognize_sphinx(audio, language='zh_CN')</span>
-<span class="token comment" spellcheck="true"># 选择语言</span>
-<span class="token comment" spellcheck="true"># 选择翻译片段</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        text <span class="token operator">=</span> r<span class="token punctuation">.</span>recognize_google<span class="token punctuation">(</span>audio<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"You said: "</span> <span class="token operator">+</span> text<span class="token punctuation">)</span>
-    <span class="token keyword">except</span> sr<span class="token punctuation">.</span>UnknownValueError<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Google Speech Recognition could not understand audio"</span><span class="token punctuation">)</span>
-    <span class="token keyword">except</span> sr<span class="token punctuation">.</span>RequestError <span class="token keyword">as</span> e<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Could not request results from Google Speech Recognition service"</span> <span class="token operator">+</span> format<span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<h1 id="利用多线程实现了批量快速识别："><a href="#利用多线程实现了批量快速识别：" class="headerlink" title="利用多线程实现了批量快速识别："></a>利用多线程实现了批量快速识别：</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/yan-code1/TrainingCode/blob/main/TrainCode/someTools/AudioVideoProcess/audioRecGoogle.py">https://github.com/yan-code1/TrainingCode/blob/main/TrainCode/someTools/AudioVideoProcess/audioRecGoogle.py</a></li>
-</ul>
-
-        </div>
-        <!-- .entry-content -->
-        
-        <div class="single-reward">
-          <div class="reward-open">赏
-            <div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="/img/custom/donate/AliPayQR.jpg"></li>
-                <li class="wechat-code"><img src="/img/custom/donate/WeChanQR.jpg"></li>
-              </ul>
+  <div id="main">
+    <header class="page-header">
+      <h1 class="cat-title">
+      归档</h1>
+      <span class="cat-des">
+        <p>
+        Archives</p>
+      </span>
+    </header>
+    <div id="main-part">
+      <article class="art">
+        <div class="art-main">
+          <div class="art-content">
+            <div id="archives">
+              <p style="text-align:right;">
+                [<span id="al_expand_collapse" style="cursor: s-resize;">
+                全部展开/收缩</span>
+              ]</p>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2022年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      03月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2022/03/07/UDP_Transmission/">
+                          <span style="color:#0bf;">
+                          07日14:54:29</span>
+                          基于UDP的socket多播传输
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2022/03/04/create_web_page/">
+                          <span style="color:#0bf;">
+                          04日16:54:02</span>
+                          在github上搭建hexo博客主页
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2021年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      12月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2021/12/05/TCP_notes/">
+                          <span style="color:#0bf;">
+                          05日11:22:00</span>
+                          TCP学习笔记
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      07月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2021/07/23/nginx/">
+                          <span style="color:#0bf;">
+                          23日03:46:00</span>
+                          nginx流媒体服务器搭建
+                        </a>
+                      </li>
+                      
+              
+              
+              
+              
+              
+                      <li>
+                        <a href="/2021/07/21/ffmpeg/">
+                          <span style="color:#0bf;">
+                          21日09:16:00</span>
+                          ffmpeg推流指令
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
+              
+              
+              
+                
+                <h3 class="al_year">2020年</h3>
+              
+              
+                
+                <ul class="al_mon_list">
+                  <li class="al_li">
+                    <span class="al_mon" style="cursor: s-resize;">
+                      02月(<span id="post-num">
+                      3</span>
+                    篇文章)</span>
+                    <ul class="al_post_list" style="">
+              
+                      <li>
+                        <a href="/2020/02/03/google-speech/">
+                          <span style="color:#0bf;">
+                          03日17:27:00</span>
+                          调用google speech recognition实现语音片段识别
+                        </a>
+                      </li>
+                      
+                    </ul>
+                  </li>
+                </ul>
+              
+              
             </div>
           </div>
         </div>
-          
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
       </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre full previous">
-          
-            <a href="/2021/07/21/ffmpeg/" rel="prev">
-              <div class="background">
-<!--                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://gitee.com/yan-code1/Images/raw/master/pic/20220324/231336044-1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://gitee.com/yan-code1/Images/raw/master/pic/20220324/231336044-1.png">-->
-                
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/xbclub/imageCDN//upload/20200306164050.gif" data-src="https://gitee.com/yan-code1/Images/raw/master/pic/20220324/231336044-1.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" >
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                ffmpeg推流指令</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-      </section>
-      
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">Author</span>
-            <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
-            </h3>
-          </div>
-        </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i></p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+    </div>
+  </div>
 </div>
-
 
     </div>    
     <div class="ins-search">
