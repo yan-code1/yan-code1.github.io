@@ -60,7 +60,7 @@ home = '''
 '''
 # img,price,original_price,name
 item = '''
-            <a href="#">
+            <a href={}s>
                 <div class="pic">
                     <img src="{}" loading="lazy" alt="">
                     <div class="count">
@@ -69,9 +69,12 @@ item = '''
                             <span>现价:{}</span>
                         </p>
                         <p>
-                            <i class="iconfont icon_shipin_danmushu"></i>
+                            <span>史低:{}</span>
+                        </p>
+                        <p>
                             <span>原价:{}</span>
                         </p>
+
                     </div>
                 </div>
                 <div class="txt ellipsis-2">
