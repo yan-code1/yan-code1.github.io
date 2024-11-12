@@ -13850,7 +13850,7 @@
     </div>
 <!-- 价格趋势折线图 -->
 <script>
-    window.onload = function() {
+   window.onload = function() {
         // 获取所有带有 .chart-container 类的元素
         var chartContainers = document.querySelectorAll('.chart-container');
 
@@ -13869,18 +13869,26 @@
                 data: {
                     labels: labels,
                     datasets: [{
-                        label: '价格变化',
                         data: values,
                         borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 0.5,
                         fill: false,
                         tension: 0.1
                     }]
                 },
                 options: {
                     responsive: true,
+                    plugins: {
+                        legend: {
+                            display: false // 禁用图例（label 和方框）
+                        },
+                        tooltip: {
+                            enabled: false // 禁用提示框
+                        }
+                    },
                     scales: {
                         x: {
-                            display: true, // 显示 X 轴标签
+                            display: false, // 显示 X 轴标签
                         },
                         y: {
                             title: {
