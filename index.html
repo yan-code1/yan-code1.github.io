@@ -13870,8 +13870,9 @@
                     labels: labels,
                     datasets: [{
                         data: values,
-                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderColor: 'rgba(75, 192, 192, 1)', //线条颜色
                         borderWidth: 0.5,
+                        backgroundColor: 'lightblue', //节点颜色
                         fill: false,
                         tension: 0.1
                     }]
@@ -13893,7 +13894,7 @@
                         y: {
                             title: {
                                 display: true,
-                                text: '价格'
+                                text: '价格波动'
                             }
                         }
                     }
