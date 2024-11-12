@@ -13829,22 +13829,22 @@
     </div>
 <!-- 价格趋势折线图 -->
 <script>
- window.onload = function() {
-        var chartContainer = document.querySelector('.chart-container');
+window.onload = function() {
+    var chartContainers = document.querySelectorAll('.chart-container');
 
-        var labels = JSON.parse(chartContainer.getAttribute('data-labels'));
-        var values = JSON.parse(chartContainer.getAttribute('data-values'));
+    chartContainers.forEach((container, index) => {
+        var labels = JSON.parse(container.getAttribute('data-labels'));
+        var values = JSON.parse(container.getAttribute('data-values'));
 
-        var ctx = document.getElementById('lineChart').getContext('2d');
-
-        var lineChart = new Chart(ctx, {
+        var canvas = container.querySelector('canvas');
+        var ctx = canvas.getContext('2d');
+        new Chart(ctx, {
             type: 'line',
             data: {
-                // 使用从HTML中获取的labels和values
-                labels: labels.map(() => ' '),
+                labels: labels,
                 datasets: [{
                     label: '价格变化',
-                    data: values,  // 使用从HTML中获取的值
+                    data: values,
                     borderColor: 'rgba(75, 192, 192, 1)',
                     fill: false,
                     tension: 0.1
@@ -13854,7 +13854,7 @@
                 responsive: true,
                 scales: {
                     x: {
-                        display: false,  // 隐藏 X 轴标签
+                        display: false,
                     },
                     y: {
                         title: {
@@ -13863,9 +13863,10 @@
                         }
                     }
                 }
-             }
-            });
-        };
+            }
+        });
+    });
+};
 </script>
 </body>
 </html>
